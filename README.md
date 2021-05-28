@@ -35,7 +35,7 @@ Gerbers for the main PCB can be found [here](plots) and for the front panel [her
 |FB1 FB2                                                    |2       |Ferrite Bead         |                                                  |
 |J1                                                         |1       |MIDI_IN              |Molex KK 2.54mm 2 pin                             |
 |J10                                                        |1       |CV_OUT               |Molex KK 2.54mm 5 pin                             |
-|J2                                                         |1       |Display I2C          |OLED display 0.96” 128x64 I2C SH1106              |
+|J2                                                         |1       |Display I2C          |OLED display 1.3" 128x64 I2C SH1106               |
 |J3                                                         |1       |GATE_IN              |Molex KK 2.54mm 5 pin                             |
 |J4                                                         |1       |GATE_OUT             |Molex KK 2.54mm 5 pin                             |
 |J5                                                         |1       |ADS1115 breakout     |ADC, pin order: VCC GND SCL SDA ADDR ALERT A B C D|
@@ -56,6 +56,8 @@ Gerbers for the main PCB can be found [here](plots) and for the front panel [her
 |U2                                                         |1       |74LS14               |                                                  |
 |U3                                                         |1       |6N137                |                                                  |
 |U4                                                         |1       |L7805                |                                                  |
+|                                                           |        |Pin sockets, 2.54mm  |Needed for the Arduino, OLED display, ADC and DAC |
+\* match in pairs to get more accurate ADC readings
 
 ## Installation and calibration
 
