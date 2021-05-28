@@ -7,7 +7,7 @@ Here is a full list of features:
 - 4x CV output (0-10V)
 - 4x gate/trigger in
 - 4x gate/trigger out
-- 0.96" OLED display
+- 1.3" OLED display
 - DIN serial MIDI in/through/out
 - Rotary encoder with switch
 - 3 switches
