@@ -42,6 +42,7 @@ RotaryEncoder encoder(10, 11, RotaryEncoder::LatchMode::TWO03);
 MENU(mainMenu,"KOSMO MULTITOOL",doNothing,noEvent,wrapStyle
   //,SUBMENU(subMenuExample)
   ,SUBMENU(subMenuArp)
+  ,OP("MULTIPLE",doNothing,noEvent)
 );
 #define MAX_DEPTH 3
 noInput in;
