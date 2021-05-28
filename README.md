@@ -57,21 +57,24 @@ Gerbers for the main PCB can be found [here](plots) and for the front panel [her
 |U3                                                         |1       |6N137                |                                                  |
 |U4                                                         |1       |L7805                |                                                  |
 |                                                           |        |Pin sockets, 2.54mm  |Needed for the Arduino, OLED display, ADC and DAC |
+|                                                           |16      |Jack sockets 6.35mm  |                                                  |
+|                                                           |3       |DIN MIDI sockets     |                                                  |
+
 \* match in pairs to get more accurate ADC readings
 
 ## Installation and calibration
 
-Clone the repository and open up the `src/main` folder in the Arduino IDE or whatever you use for compiling. The ADC and the DAC need calibration to get proper results.
+Clone the repository and open up the `src/main` folder in the Arduino IDE or whatever you use for compiling. You need to install the libraries mentioned below into you Arduino library folder. The ADC and the DAC need calibration to get proper results.
 
 ### ADC calibration
-Set `CALIBRATE_CV_IN` variable in main file to `1`. Apply a fixed, known voltage to CV1 input, eg. 5.000V. On serial console you get the actual reading from the ADC. Calculate the correction factor `FIXED VOLTAGE / ACTUAL VOLTAGE`, eg. `5.000 / 4.9884 = 1.0023`. Enter the value in the CV_IN_CORRECTION array in the top lines of `main.ino`. Repeat this procedure for all CV inputs. In the end it should look something like this:
+Set `CALIBRATE_CV_IN` variable in main file to `1`. Apply a fixed, known voltage to CV1 input, eg. 5.000V. On USB serial console (9600 baud) you get the actual reading from the ADC. Calculate the correction factor `FIXED VOLTAGE / ACTUAL VOLTAGE`, eg. `5.000 / 4.9884 = 1.0023`. Enter the value in the CV_IN_CORRECTION array in the top lines of `main.ino`. Repeat this procedure for all CV inputs. In the end it should look something like this:
 ```
 float CV_IN_CORRECTION[4] = {0.9995f, 0.9956f, 1.0013f, 1.0009f};
 ```
 Notice the trailing `f` to tell the compiler that these are float values. Don't forget to set `CALIBRATE_CV_IN` back to `0`.
 
 ### DAC calibration
-Make sure to calibrate the ADC first. Set `CALIBRATE_CV_OUT` variable in main file to `1`. Plug in patch cables from all four CV outputs to the CV inputs. Calibration is done automatically and stored in a look-up table. Set `CALIBRATE_CV_OUT` back to `0`. This step is only needed once, from now on calibration values are loaded from EEPROM on start up.
+Make sure to calibrate the ADC first. Set `CALIBRATE_CV_OUT` variable in main file to `1`. Plug in patch cables from all four CV inputs to the CV outputs. Calibration is done automatically and stored in a look-up table. Set `CALIBRATE_CV_OUT` back to `0`. This step is only needed once, from now on calibration values are loaded from EEPROM on start up.
 
 ## Development
 
