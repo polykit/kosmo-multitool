@@ -98,6 +98,7 @@ https://github.com/mathertel/RotaryEncoder
 
 https://github.com/ivanseidel/LinkedList
 
+
 ## References
 
 https://www.lookmumnocomputer.com/modular
@@ -105,3 +106,7 @@ https://www.lookmumnocomputer.com/modular
 https://www.ti.com/lit/ds/symlink/ads1115.pdf
 
 http://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf
+
+## License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
