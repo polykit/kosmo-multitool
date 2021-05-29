@@ -14,6 +14,8 @@
 
 //#include "example_module.h"
 #include "arp.h"
+#include "multiple.h"
+#include "midi2cv.h"
 
 #define DEBUG 1
 #define CALIBRATE_CV_IN 0
@@ -42,7 +44,8 @@ RotaryEncoder encoder(10, 11, RotaryEncoder::LatchMode::TWO03);
 MENU(mainMenu,"KOSMO MULTITOOL",doNothing,noEvent,wrapStyle
   //,SUBMENU(subMenuExample)
   ,SUBMENU(subMenuArp)
-  ,OP("MULTIPLE",doNothing,noEvent)
+  ,SUBMENU(subMenuMidi2CV)
+  ,SUBMENU(subMenuMultiple)
 );
 #define MAX_DEPTH 3
 noInput in;
@@ -287,6 +290,11 @@ void setGateOutLow(int n) {
   digitalWrite(GATE_OUT_PINS[n], LOW);
 }
 
+void setGateOut(int n, bool b) {
+  if (n>3) return;
+  digitalWrite(GATE_OUT_PINS[n], b);
+}
+
 bool getGateIn(int n) {
   if (n>3) return -1;
   return digitalRead(GATE_IN_PINS[n]);
@@ -312,4 +320,16 @@ void setLEDOn(int n) {
 void setLEDOff(int n) {
   if (n>1) return;
   digitalWrite(LED_PINS[n], LOW);
+}
+
+void resetCVOut() {
+  for(int i=0; i<4; i++) {
+    setCVOut(i, 0, false);
+  }
+}
+
+void resetGateOut() {
+  for(int i=0; i<4; i++) {
+    setGateOutLow(i);
+  }
 }

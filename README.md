@@ -18,6 +18,8 @@ Here is a full list of features:
 ## Modules
 
 - Arpeggiator
+- MIDI to CV
+- Multiple
 
 ## Building
 

@@ -16,6 +16,8 @@ void startExample() {
 
 // called once on module exit
 void endExample() {
+  resetCVOut();
+  resetGateOut();
 }
 
 // called constantly from main loop

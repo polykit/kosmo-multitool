@@ -14,7 +14,6 @@ unsigned long arpLast;
 int arpMidiPos;
 LinkedList<byte> arpHoldNotes;
 
-
 void startArp() {
   arpLast = millis();
   arpMidiPos = 0;
@@ -22,6 +21,8 @@ void startArp() {
 
 void endArp() {
   arpHoldNotes.clear();
+  resetCVOut();
+  resetGateOut();
 }
 
 void loopArp() {
@@ -60,4 +61,5 @@ void loopArp() {
 
 result arpClearHold() {
   arpHoldNotes.clear();
+  return proceed;
 }
