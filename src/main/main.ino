@@ -66,10 +66,7 @@ void setup(void) {
   MIDI.setHandleNoteOn(handleNoteOn);
   MIDI.setHandleNoteOff(handleNoteOff);
   MIDI.begin(MIDI_CHANNEL);
-  for (int i=0; i<20; i++) {
-    MIDI_NOTES_ACTIVE[i] = 0;
-  }
-  
+
   // init display
   u8x8.begin();
   u8x8.setFont(u8x8_font_chroma48medium8_u);
@@ -270,9 +267,12 @@ void setGateOutDuration(int n, unsigned long duration_ms) {
 
 void handleGateOutDurations() {
   for (int n=0; n<4; n++) {
-    if (GATE_OUT_DURATION[n] > 0 && millis()-GATE_OUT_DURATION[n] > 0) {
-      GATE_OUT_DURATION[n] = 0;
-      setGateOutLow(n);
+    if (GATE_OUT_DURATION[n] > 0) {
+      long d = GATE_OUT_DURATION[n]-millis();
+      if (d < 0) {
+        setGateOutLow(n);
+        GATE_OUT_DURATION[n] = 0;
+      }
     }
   }
 }
