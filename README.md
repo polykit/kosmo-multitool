@@ -17,6 +17,7 @@ Here is a full list of features:
 
 ## Modules
 
+- ADSR
 - Arpeggiator
 - MIDI to CV
 - Multiple
@@ -108,6 +109,8 @@ https://www.lookmumnocomputer.com/modular
 https://www.ti.com/lit/ds/symlink/ads1115.pdf
 
 http://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf
+
+https://github.com/DylanMeeus/GoAudio
 
 ## License
 

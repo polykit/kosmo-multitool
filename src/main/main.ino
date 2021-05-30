@@ -13,9 +13,10 @@
 #include <LinkedList.h>
 
 //#include "example_module.h"
+#include "adsr.h"
 #include "arp.h"
-#include "multiple.h"
 #include "midi2cv.h"
+#include "multiple.h"
 
 #define DEBUG 1
 #define CALIBRATE_CV_IN 0
@@ -43,6 +44,7 @@ RotaryEncoder encoder(10, 11, RotaryEncoder::LatchMode::TWO03);
 // menu
 MENU(mainMenu,"KOSMO MULTITOOL",doNothing,noEvent,wrapStyle
   //,SUBMENU(subMenuExample)
+  ,SUBMENU(subMenuADSR)
   ,SUBMENU(subMenuArp)
   ,SUBMENU(subMenuMidi2CV)
   ,SUBMENU(subMenuMultiple)
@@ -297,7 +299,7 @@ void setGateOut(int n, bool b) {
 
 bool getGateIn(int n) {
   if (n>3) return -1;
-  return digitalRead(GATE_IN_PINS[n]);
+  return (bool)digitalRead(GATE_IN_PINS[n]);
 }
 
 void handleSwitches() {
