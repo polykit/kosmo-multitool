@@ -17,6 +17,7 @@
 #include "arp.h"
 #include "midi2cv.h"
 #include "multiple.h"
+#include "quantizer.h"
 
 #define DEBUG 1
 #define CALIBRATE_CV_IN 0
@@ -48,6 +49,7 @@ MENU(mainMenu,"KOSMO MULTITOOL",doNothing,noEvent,wrapStyle
   ,SUBMENU(subMenuArp)
   ,SUBMENU(subMenuMidi2CV)
   ,SUBMENU(subMenuMultiple)
+  ,SUBMENU(subMenuQuantizer)
 );
 #define MAX_DEPTH 3
 noInput in;

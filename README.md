@@ -13,7 +13,7 @@ Here is a full list of features:
 - 3 switches
 - 2 LEDs
 
-![Kosmo Multitool Panel](kosmo-multitool-panel.png) ![Kosmo Multitool PCB](kosmo-multitool-pcb.png)
+![Kosmo Multitool Assembled](kosmo-multitool-modulargrid.jpg)
 
 ## Modules
 
@@ -21,10 +21,13 @@ Here is a full list of features:
 - Arpeggiator
 - MIDI to CV
 - Multiple
+- Quantizer
 
 ## Building
 
 Gerbers for the main PCB can be found [here](plots) and for the front panel [here](panel/plots).
+
+![Kosmo Multitool Panel](kosmo-multitool-panel.png) ![Kosmo Multitool PCB](kosmo-multitool-pcb.png)
 
 ### BOM
 
